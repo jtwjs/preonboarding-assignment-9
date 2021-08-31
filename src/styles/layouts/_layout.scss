@@ -7,4 +7,5 @@ $header-height: 4.8rem;
 
 .section {
   min-height: calc(100vh - #{$header-height});
+  padding: 0 1.6rem;
 }
