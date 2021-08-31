@@ -1,0 +1,113 @@
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'todo' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-bed .path1:before {
+  content: "\e900";
+  color: rgb(200, 59, 59);
+}
+.ic-bed .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-bed .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-bed .path4:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-bed .path5:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-bed .path6:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: none;
+}
+.ic-smile .path1:before {
+  content: "\e906";
+  color: rgb(101, 220, 64);
+}
+.ic-smile .path2:before {
+  content: "\e907";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-smile .path3:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-smile .path4:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-smile .path5:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-smile .path6:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: none;
+}
+.ic-soso .path1:before {
+  content: "\e90c";
+  color: rgb(39, 171, 255);
+}
+.ic-soso .path2:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-soso .path3:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-soso .path4:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-soso .path5:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-soso .path6:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.ic-trash:before {
+  content: "\e912";
+  color: #3b5162;
+}
+.ic-write:before {
+  content: "\e913";
+  color: #3b5162;
+}
+.ic-plus:before {
+  content: "\ea0a";
+}
