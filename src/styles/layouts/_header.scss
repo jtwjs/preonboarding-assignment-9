@@ -1,0 +1,12 @@
+.header {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  @include flexbox;
+
+  &-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    line-height: 2;
+  }
+}

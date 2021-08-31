@@ -1,0 +1,10 @@
+$header-height: 4.8rem;
+
+.main {
+  width: 100%;
+  padding-top: $header-height;
+}
+
+.section {
+  min-height: calc(100vh - #{$header-height});
+}
