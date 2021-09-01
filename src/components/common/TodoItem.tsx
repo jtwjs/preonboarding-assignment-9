@@ -2,14 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 
-
+import type { Priority, Todo } from 'types/todos';
 import type { RootState } from 'store/reducers';
-import { selectTodoItem, unselectTodoItem } from "store/actions";
-
-import { Priority } from 'components/TodoPriority';
+import { selectTodoItem, unselectTodoItem } from 'store/actions';
 
 type TodoItemProps = {
-  id: string;
+  id: Todo['id'];
   priority: Priority;
   contents: string;
 };
@@ -27,8 +25,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, priority, contents }) => {
   }));
   const dispatch = useDispatch();
 
-  const clickHandler = (id: string) => {
-  	selectedTodos.includes(id) ? dispatch(unselectTodoItem(id)) : dispatch(selectTodoItem(id));
+  const clickHandler = (id: Todo['id']) => {
+    selectedTodos.includes(id)
+      ? dispatch(unselectTodoItem(id))
+      : dispatch(selectTodoItem(id));
   };
 
   return (

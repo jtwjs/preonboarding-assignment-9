@@ -2,12 +2,17 @@ import React from 'react';
 
 import TodoForm from 'components/common/TodoForm';
 
-const TodoInput: React.FC = (props) => {
+type TodoInputProps = {
+	value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const TodoInput: React.FC<TodoInputProps> = ({ ...restProps }) => {
   return (
     <TodoForm id="todo-input" label="Write To-do">
       <div className="input-group">
         <i className="ic-write" aria-hidden="true"></i>
-        <input className="form-input" id="todo-input" />
+        <input className="form-input" id="todo-input" {...restProps} />
       </div>
     </TodoForm>
   );

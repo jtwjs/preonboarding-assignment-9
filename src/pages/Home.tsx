@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { RootState } from 'store/reducers';
 
 import Layout from 'layout';
 import TodoCreator from 'components/TodoCreator';
@@ -7,6 +10,9 @@ import TodoWrap from 'components/common/TodoWrap';
 import TodoItem from 'components/common/TodoItem';
 
 const Home: React.FC = () => {
+  const { todos } = useSelector(({ todos }: RootState) => ({
+    todos: todos.todos,
+  }));
   return (
     <Layout>
       <section className="section todo-section">
@@ -17,23 +23,17 @@ const Home: React.FC = () => {
         </div>
         <div className="content-bottom">
           <TodoWrap title="In-Progress">
-            <TodoItem
-              id="1"
-              priority="high"
-              contents="content!"
-            />
-            <TodoItem
-              id="2"
-              priority="middle"
-              contents="content!"
-            />
+            {todos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                id={todo.id}
+                priority={todo.priority}
+                contents={todo.content}
+              />
+            ))}
           </TodoWrap>
           <TodoWrap title="Done">
-            <TodoItem
-              id="0"
-              priority="lowest"
-              contents="Done content!"
-            />
+            <TodoItem id={0} priority="lowest" contents="Done content!" />
           </TodoWrap>
         </div>
       </section>

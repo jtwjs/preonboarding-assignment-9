@@ -8,7 +8,7 @@ export const addTodoItem = (payload: Todo) => {
   };
 };
 
-export const deleteTodoItem = (payload: Todo['id']) => {
+export const deleteTodoItem = (payload: Todo['id'][]) => {
   return <const>{
     type: types.DELETE_TODO_ITEM,
     payload,

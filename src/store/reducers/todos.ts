@@ -2,7 +2,6 @@ import * as types from 'store/actions/actionTypes';
 import type { TodoAction } from 'store/actions';
 import type { Todo } from 'types/todos';
 
-
 type StateProps = {
 	todos: Todo[];
 	selectedTodos: Todo['id'][];
@@ -24,7 +23,8 @@ const todoReducer = (state: StateProps = initialState, action: TodoAction): Stat
 		case types.DELETE_TODO_ITEM:
 			return {
 				...state,
-				todos: state.todos.filter(todo => todo.id !== action.payload),
+				todos: state.todos.filter(todo => !action.payload.includes(todo.id)),
+				selectedTodos: state.selectedTodos.filter(id => !action.payload.includes(id)),
 			};
 
 		case types.EDIT_TODO_ITEM:
