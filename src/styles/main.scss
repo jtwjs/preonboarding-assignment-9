@@ -1,6 +1,7 @@
 @import './constants/colors';
 @import './constants/typography';
 @import './constants/breakpoint';
+@import './constants/box-shadows';
 
 @import './base/reset';
 @import './base/globals';
@@ -17,6 +18,10 @@
 
 @import './components/todo-form';
 @import './components/todo-creator';
+@import './components/progress-bar';
+@import './components/todo-progress';
+@import './components/todo-wrap';
+@import './components/todo-item';
 
 @import './layouts/layout';
 @import './layouts/header';
