@@ -1,5 +1,6 @@
-.creator {
+.todo-creator {
   @include flexbox(between);
+  margin-bottom: 2rem;
   .submit-btn {
     position: fixed;
     top: 10px;
