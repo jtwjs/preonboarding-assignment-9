@@ -1,11 +1,14 @@
 import React from 'react';
-
-import { Priority } from 'components/TodoPriority';
 import classNames from "classnames";
 
+import { Priority } from 'components/TodoPriority';
+
 type TodoItemProps = {
+	id: string;
   priority: Priority;
   contents: string;
+  selectedTodoIds: string[];
+  clickHandler: (id: string) => void;
 };
 
 const priorityLabelTable = {
@@ -15,9 +18,10 @@ const priorityLabelTable = {
   lowest: 'D',
 };
 
-const TodoItem: React.FC<TodoItemProps> = ({ priority, contents }) => {
+const TodoItem: React.FC<TodoItemProps> = ({id, priority, contents, selectedTodoIds, clickHandler}) => {
+
   return (
-    <li className="todo-item">
+    <li className={classNames("todo-item", {'checked': selectedTodoIds.includes(id)})} onClick={() => clickHandler(id)}>
       <div className={classNames('todo-item-priority', priority)}>
         {priorityLabelTable[priority]}
       </div>
