@@ -1,0 +1,19 @@
+%btn-base {
+  @include inline-flexbox();
+  padding: 0 0.8rem;
+  font-weight: 700;
+  border-radius: 0.8rem;
+}
+
+.btn-primary {
+  @extend %btn-base;
+  height: 2.8rem;
+  border: 1px solid $black;
+  color: $white;
+  background-color: $green;
+  transition: background-color 200ms ease-in-out;
+
+  &:not(:disabled):hover {
+    background-color: $green-dark;
+  }
+}

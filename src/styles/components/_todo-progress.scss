@@ -1,0 +1,17 @@
+.todo-progress {
+  margin-bottom: 1rem;
+
+  .progress {
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-text {
+    @include flexbox(between);
+    font-size: 1rem;
+    color: $gray8;
+    h3 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+}
