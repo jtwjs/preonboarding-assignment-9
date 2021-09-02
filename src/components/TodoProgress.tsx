@@ -1,14 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import ProgressBar from 'components/common/ProgressBar';
+import {RootState} from "../store/reducers";
 
-const TodoProgress: React.FC = (props) => {
+const TodoProgress: React.FC = () => {
+	const {max, value} = useSelector(({todos}: RootState) => ({
+		max: todos.todos.length,
+		value: todos.todos.filter(todo => todo.isCheck).length,
+	}));
+
   return (
     <section className="todo-progress">
-      <ProgressBar max={24} value={5} />
+      <ProgressBar max={max} value={value} />
       <div className="progress-text">
         <h3>Progress</h3>
-        <strong>5/24 complete</strong>
+        <strong>{`${value}/${max} complete`}</strong>
       </div>
     </section>
   );

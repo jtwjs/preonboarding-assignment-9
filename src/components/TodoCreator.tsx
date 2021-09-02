@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Priority, Todo } from 'types/todos';
 import { RootState } from 'store/reducers';
-import { addTodoItem, deleteTodoItem } from 'store/actions';
+import { addTodoRequestAction, deleteTodoRequestAction } from 'store/actions';
 
 import TodoInput from 'components/TodoInput';
 import TodoPriority from 'components/TodoPriority';
@@ -44,12 +44,12 @@ const TodoCreator: React.FC = () => {
       createdAt: new Date(),
     };
 
-    dispatch(addTodoItem(newTodo));
+    dispatch(addTodoRequestAction(newTodo));
     setInputValue('');
   }, [inputValue, priority]);
 
   const handleDeleteTodo = useCallback(() => {
-    dispatch(deleteTodoItem(selectedTodos));
+    selectedTodos.forEach((id) => dispatch(deleteTodoRequestAction(id)));
   }, [selectedTodos]);
 
   return (

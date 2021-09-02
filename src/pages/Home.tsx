@@ -13,6 +13,31 @@ const Home: React.FC = () => {
   const { todos } = useSelector(({ todos }: RootState) => ({
     todos: todos.todos,
   }));
+
+  const todoInProgress = todos.map(
+    (todo) =>
+      !todo.isCheck && (
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          priority={todo.priority}
+          contents={todo.content}
+        />
+      ),
+  );
+
+  const todoDone = todos.map(
+    (todo) =>
+      todo.isCheck && (
+        <TodoItem
+          key={todo.id}
+          id={todo.id}
+          priority={todo.priority}
+          contents={todo.content}
+        />
+      ),
+  );
+
   return (
     <Layout>
       <section className="section todo-section">
@@ -22,19 +47,8 @@ const Home: React.FC = () => {
           <TodoProgress />
         </div>
         <div className="content-bottom">
-          <TodoWrap title="In-Progress">
-            {todos.map((todo) => (
-              <TodoItem
-                key={todo.id}
-                id={todo.id}
-                priority={todo.priority}
-                contents={todo.content}
-              />
-            ))}
-          </TodoWrap>
-          <TodoWrap title="Done">
-            <TodoItem id={0} priority="lowest" contents="Done content!" />
-          </TodoWrap>
+          <TodoWrap title="In-Progress">{todoInProgress}</TodoWrap>
+          <TodoWrap title="Done">{todoDone}</TodoWrap>
         </div>
       </section>
     </Layout>
