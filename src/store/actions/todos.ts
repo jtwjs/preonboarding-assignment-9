@@ -120,20 +120,20 @@ export const unselectTodoItemAction = (payload: Todo['id']) => {
 };
 
 export type TodoAction =
-	| ReturnType<typeof getTodoRequestAction>
-	| ReturnType<typeof getTodoSuccessAction>
-	| ReturnType<typeof getTodoFailureAction>
+  | ReturnType<typeof getTodoRequestAction>
+  | ReturnType<typeof getTodoSuccessAction>
+  | ReturnType<typeof getTodoFailureAction>
   | ReturnType<typeof addTodoRequestAction>
-	| ReturnType<typeof addTodoSuccessAction>
-	| ReturnType<typeof addTodoFailureAction>
+  | ReturnType<typeof addTodoSuccessAction>
+  | ReturnType<typeof addTodoFailureAction>
   | ReturnType<typeof deleteTodoRequestAction>
-	| ReturnType<typeof deleteTodoSuccessAction>
-	| ReturnType<typeof deleteTodoFailureAction>
+  | ReturnType<typeof deleteTodoSuccessAction>
+  | ReturnType<typeof deleteTodoFailureAction>
   | ReturnType<typeof editTodoRequestAction>
-	| ReturnType<typeof editTodoSuccessAction>
-	| ReturnType<typeof editTodoFailureAction>
+  | ReturnType<typeof editTodoSuccessAction>
+  | ReturnType<typeof editTodoFailureAction>
   | ReturnType<typeof checkTodoRequestAction>
-	| ReturnType<typeof checkTodoSuccessAction>
-	| ReturnType<typeof checkTodoFailureAction>
+  | ReturnType<typeof checkTodoSuccessAction>
+  | ReturnType<typeof checkTodoFailureAction>
   | ReturnType<typeof selectTodoItemAction>
   | ReturnType<typeof unselectTodoItemAction>;

@@ -1,5 +1,5 @@
 import {
-	getTodoRequestAction,
+  getTodoRequestAction,
   addTodoRequestAction,
   deleteTodoRequestAction,
   editTodoRequestAction,
@@ -11,7 +11,7 @@ import {
 import type { TodoAction } from './todos';
 
 export {
-	getTodoRequestAction,
+  getTodoRequestAction,
   addTodoRequestAction,
   deleteTodoRequestAction,
   editTodoRequestAction,

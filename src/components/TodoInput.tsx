@@ -3,7 +3,7 @@ import React from 'react';
 import TodoForm from 'components/common/TodoForm';
 
 type TodoInputProps = {
-	value: string;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 

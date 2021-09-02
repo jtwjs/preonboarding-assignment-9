@@ -7,7 +7,9 @@ const httpClient = axios.create({
 });
 
 export const getTodo = async (): Promise<AxiosResponse> => {
-  const { data: {todoList} } = await httpClient.get('todo');
+  const {
+    data: { todoList },
+  } = await httpClient.get('todo');
   console.log('data', todoList);
   return todoList;
 };

@@ -5,10 +5,10 @@ import ProgressBar from 'components/common/ProgressBar';
 import {RootState} from "../store/reducers";
 
 const TodoProgress: React.FC = () => {
-	const {max, value} = useSelector(({todos}: RootState) => ({
-		max: todos.todos.length,
-		value: todos.todos.filter(todo => todo.isCheck).length,
-	}));
+  const {max, value} = useSelector(({todos}: RootState) => ({
+    max: todos.todos.length,
+    value: todos.todos.filter(todo => todo.isCheck).length,
+  }));
 
   return (
     <section className="todo-progress">
