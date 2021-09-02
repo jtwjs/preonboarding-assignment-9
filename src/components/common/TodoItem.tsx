@@ -1,14 +1,15 @@
 import React from 'react';
-import classNames from "classnames";
+import classNames from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { Priority } from 'components/TodoPriority';
+import type { Priority, Todo } from 'types/todos';
+import type { RootState } from 'store/reducers';
+import { selectTodoItemAction, unselectTodoItemAction } from 'store/actions';
 
 type TodoItemProps = {
-	id: string;
+  id: Todo['id'];
   priority: Priority;
   contents: string;
-  selectedTodoIds: string[];
-  clickHandler: (id: string) => void;
 };
 
 const priorityLabelTable = {
@@ -18,10 +19,25 @@ const priorityLabelTable = {
   lowest: 'D',
 };
 
-const TodoItem: React.FC<TodoItemProps> = ({id, priority, contents, selectedTodoIds, clickHandler}) => {
+const TodoItem: React.FC<TodoItemProps> = ({ id, priority, contents }) => {
+  const { selectedTodos } = useSelector(({ todos }: RootState) => ({
+    selectedTodos: todos.selectedTodos,
+  }));
+  const dispatch = useDispatch();
+
+  const clickHandler = (id: Todo['id']) => {
+    selectedTodos.includes(id)
+      ? dispatch(unselectTodoItemAction(id))
+      : dispatch(selectTodoItemAction(id));
+  };
 
   return (
-    <li className={classNames("todo-item", {'checked': selectedTodoIds.includes(id)})} onClick={() => clickHandler(id)}>
+    <li
+      className={classNames('todo-item', {
+        checked: selectedTodos.includes(id),
+      })}
+      onClick={() => clickHandler(id)}
+    >
       <div className={classNames('todo-item-priority', priority)}>
         {priorityLabelTable[priority]}
       </div>

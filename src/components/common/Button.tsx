@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from "classnames";
 
 type ButtonProps = {
   className?: string;
@@ -12,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({
   ...restProps
 }) => {
   return (
-    <button className={classNames(className, 'btn-primary')} {...restProps}>
+    <button className={className} {...restProps}>
       {children}
     </button>
   );
