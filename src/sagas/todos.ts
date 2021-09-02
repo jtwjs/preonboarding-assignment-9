@@ -1,4 +1,4 @@
-import { all, fork, call, put, takeLatest } from 'redux-saga/effects';
+import { all, fork, call, put, takeLatest, takeEvery } from 'redux-saga/effects';
 import { AxiosResponse } from 'axios';
 
 import * as types from 'store/actions/actionTypes';
@@ -95,7 +95,7 @@ function* watchAddTodo() {
 }
 
 function* watchDeleteTodo() {
-  yield takeLatest(types.DELETE_TODO_REQUEST, deleteTodoSaga);
+  yield takeEvery(types.DELETE_TODO_REQUEST, deleteTodoSaga);
 }
 
 function* watchEditTodo() {
