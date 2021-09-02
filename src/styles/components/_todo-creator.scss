@@ -2,8 +2,8 @@
   @include flexbox(between);
   margin-bottom: 2rem;
   .btn {
-    position: fixed;
-    top: 10px;
+    position: absolute;
+    top: -37px;
     right: 16px;
 
     .ic-write {
