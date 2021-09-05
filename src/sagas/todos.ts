@@ -3,6 +3,7 @@ import { AxiosResponse } from 'axios';
 
 import * as types from 'store/actions/actionTypes';
 import {
+  setTodoRequestAction,
   addTodoRequestAction,
   checkTodoRequestAction,
   deleteTodoRequestAction,
@@ -10,6 +11,21 @@ import {
 } from 'store/actions';
 import * as todosAPI from 'api/todos';
 import { Todo } from 'types/todos';
+
+function* setTodoSaga(action: ReturnType<typeof setTodoRequestAction>) {
+  try {
+    yield call(todosAPI.setTodo, action.payload);
+    yield put({
+      type: types.SET_TODO_SUCCESS,
+      payload: action.payload,
+    })
+  } catch(err: any) {
+    yield put({
+      type: types.SET_TODO_FAILURE,
+      payload: err.response.data,
+    })
+  }
+}
 
 function* getTodoSaga() {
   try {
@@ -86,6 +102,10 @@ function* checkTodoSaga(action: ReturnType<typeof checkTodoRequestAction>) {
   }
 }
 
+function* watchSetTodo() {
+  yield takeLatest(types.SET_TODO_REQUEST, setTodoSaga);
+}
+
 function* watchGetTodo() {
   yield takeLatest(types.GET_TODO_REQUEST, getTodoSaga);
 }
@@ -108,6 +128,7 @@ function* watchCheckTodo() {
 
 export default function* todoSaga(): Generator {
   yield all([
+    fork(watchSetTodo),
     fork(watchGetTodo),
     fork(watchAddTodo),
     fork(watchDeleteTodo),

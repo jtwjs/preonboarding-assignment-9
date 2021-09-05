@@ -19,6 +19,21 @@ const todoReducer = (
   action: TodoAction,
 ): StateProps => {
   switch (action.type) {
+    case types.SET_TODO_REQUEST:
+      return state;
+
+    case types.SET_TODO_SUCCESS:
+      return {
+        ...state,
+        todos: action.payload,
+      }
+
+    case types.SET_TODO_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      }
+
     case types.GET_TODO_REQUEST:
       return state;
 

@@ -7,3 +7,8 @@ export type Todo = {
 }
 
 export type Priority = 'high' | 'middle' | 'low' | 'lowest';
+
+export type TargetIdRef = {
+  id: Todo['id'];
+  isCheck: Todo['isCheck'];
+};
