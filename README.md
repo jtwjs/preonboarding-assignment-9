@@ -42,7 +42,7 @@ $ yarn start
 ### 📘 Nice to Have
 - temp
 ## 🎯 Future Updates
-- [ ] Drag & Drop (todo 완료 상태 변경)
+- [x] Drag & Drop (todo 완료 상태 변경)
 - [ ] Desktop, Tablet responsive
 - [ ] loading spinner
 
