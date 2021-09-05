@@ -1,0 +1,21 @@
+@keyframes drag_start {
+  0%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.mute * {
+  pointer-events: none;
+}
+
+.lifted {
+  animation: drag_start 250ms;
+  opacity: 0.2;
+}
+
+.drop-area {
+  box-shadow: $drop-shadow;
+}
