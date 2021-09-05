@@ -1,6 +1,27 @@
 import * as types from 'store/actions/actionTypes';
 import { Todo } from 'types/todos';
 
+export const setTodoRequestAction = (payload: Todo[]) => {
+  return <const>{
+    type: types.SET_TODO_REQUEST,
+    payload
+  }
+}
+
+export const setTodoSuccessAction = (payload: Todo[]) => {
+  return <const>{
+    type: types.SET_TODO_SUCCESS,
+    payload,
+  }
+}
+
+export const setTodoFailureAction = (payload: string) => {
+  return <const>{
+    type: types.SET_TODO_FAILURE,
+    payload,
+  }
+}
+
 export const getTodoRequestAction = () => {
   return <const>{
     type: types.GET_TODO_REQUEST,
@@ -120,6 +141,9 @@ export const unselectTodoItemAction = (payload: Todo['id']) => {
 };
 
 export type TodoAction =
+  | ReturnType<typeof setTodoRequestAction>
+  | ReturnType<typeof setTodoSuccessAction>
+  | ReturnType<typeof setTodoFailureAction>
   | ReturnType<typeof getTodoRequestAction>
   | ReturnType<typeof getTodoSuccessAction>
   | ReturnType<typeof getTodoFailureAction>
